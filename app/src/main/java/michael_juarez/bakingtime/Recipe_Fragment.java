@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import michael_juarez.bakingtime.Controller.RecipeController;
 import michael_juarez.bakingtime.Model.Recipe;
@@ -29,7 +30,6 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
 
     //Assign the fragment's RecyclerView to a variable using ButterKnife Library
     @BindView(R.id.recipe_rv) RecyclerView mRecipeRecyclerView;
-
     private Unbinder unbinder;
     RecipeController mRecipeController;
     Adapter mAdapter;
@@ -62,7 +62,7 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
     }
 
     //Define the RecyclerView's Adapter
-    public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
+    public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
         ArrayList<Recipe> mRecipeList;
 
         public RecipeAdapter(ArrayList<Recipe> recipeList) {
@@ -86,20 +86,39 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
         public int getItemCount() {
             return mRecipeList.size();
         }
-    }
 
-    public class RecipeViewHolder extends ViewHolder {
-        @BindView(R.id.recipe_name_tv) TextView mRecipeNameTextView;
-        @BindView(R.id.recipe_steps_tv) TextView mRecipeStepsTextView;
+        public class RecipeViewHolder extends ViewHolder implements View.OnClickListener {
+            @BindView(R.id.recipe_name_tv) TextView mRecipeNameTextView;
+            @BindView(R.id.recipe_steps_tv) TextView mRecipeStepsTextView;
 
-        public RecipeViewHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.list_item_recipe, parent, false));
-            ButterKnife.bind(this, itemView);
-        }
+            public RecipeViewHolder(LayoutInflater inflater, ViewGroup parent) {
+                super(inflater.inflate(R.layout.list_item_recipe, parent, false));
+                ButterKnife.bind(this, itemView);
+                itemView.setOnClickListener(this);
+            }
 
-        public void bind(String recipeId, String recipeName, String recipeStepsCount) {
-            mRecipeNameTextView.setText(recipeName);
-            mRecipeStepsTextView.setText(recipeStepsCount);
+            public void bind(String recipeId, String recipeName, String recipeStepsCount) {
+                mRecipeNameTextView.setText(recipeName);
+                mRecipeStepsTextView.setText(recipeStepsCount);
+            }
+
+            @Override
+            public void onClick(View v) {
+                //Get the position clicked
+                int clickedPosition = getAdapterPosition();
+
+                //Store the position clicked in a new bundle
+                Bundle bundle = new Bundle();
+                bundle.putInt(Steps_Fragment.KEY_POSITION, clickedPosition);
+
+                //Store the bundle inside a new Steps_Fragment
+                Fragment stepsFragment = new Steps_Fragment();
+                stepsFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
+                        .replace(R.id.recipe_container, stepsFragment)
+                        .commit();
+            }
         }
     }
 

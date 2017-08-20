@@ -7,6 +7,8 @@ package michael_juarez.bakingtime.Model;
 public class Step {
     private String mId;
     private String mShortDescription;
+    private String mVideoUrl;
+    private String mThumbnailUrl;
 
     public Step(String id, String shortDescription, String videoUrl, String thumbnailUrl) {
         mId = id;
@@ -47,8 +49,7 @@ public class Step {
         mThumbnailUrl = thumbnailUrl;
     }
 
-    private String mVideoUrl;
-    private String mThumbnailUrl;
+
 
 
 
