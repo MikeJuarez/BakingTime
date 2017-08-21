@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">BakingTime</string>
+    <string name="app_name">Baking Time</string>
     <string name="recipe_location">https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json</string>
     <string name="recipe_number">Recipe</string>
     <string name="toolbar_center_title">Baking Time App</string>
-    <string name="ingredients">Ingredients</string>
+    <string name="ingredients">Tap here for this recipe\'s ingredients</string>
+    <string name="step_number">Step\u0020</string>
+
+    <string name="step_detail_previous">Previous</string>
+    <string name="step_detail_next">Next</string>
 </resources>

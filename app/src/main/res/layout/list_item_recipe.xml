@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
     android:background="@drawable/card"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
                 <ImageView
                     android:id="@+id/list_item_recipe_iv"
                     android:layout_alignParentTop="true"
@@ -38,5 +42,5 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="3dp"/>
                 </LinearLayout>
-
-</RelativeLayout>
+        </RelativeLayout>
+</LinearLayout>

@@ -104,10 +104,10 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
 
             @Override
             public void onClick(View v) {
-                //Get the position clicked
+                //Get the mStepPosition clicked
                 int clickedPosition = getAdapterPosition();
 
-                //Store the position clicked in a new bundle
+                //Store the mStepPosition clicked in a new bundle
                 Bundle bundle = new Bundle();
                 bundle.putInt(Steps_Fragment.KEY_POSITION, clickedPosition);
 
@@ -117,6 +117,7 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
                 getFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                         .replace(R.id.recipe_container, stepsFragment)
+                        .addToBackStack(null)
                         .commit();
             }
         }
