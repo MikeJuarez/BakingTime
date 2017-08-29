@@ -6,14 +6,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.FrameLayout;
-
-import java.util.zip.Inflater;
+import android.widget.ImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import michael_juarez.bakingtime.Controller.RecipeController;
+import butterknife.OnClick;
 import michael_juarez.bakingtime.Controller.ScreenSizeController;
 
 /*
@@ -26,8 +25,7 @@ import michael_juarez.bakingtime.Controller.ScreenSizeController;
 
 public class Recipe_Activity extends AppCompatActivity {
 
-    //Find main container to hold the fragment and assign variable
-    //private FrameLayout mContainer;
+    @BindView(R.id.recipe_activity_toolbar) Toolbar mToolBar;
 
     private boolean mIsTablet;
 
@@ -35,6 +33,10 @@ public class Recipe_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recipe_activity);
+        ButterKnife.bind(this);
+
+        //Toolbar Setup
+        setSupportActionBar(mToolBar);
 
         //Check if this device is a tablet
         if (findViewById(R.id.recipe_container_tablet_left) != null)
@@ -42,7 +44,34 @@ public class Recipe_Activity extends AppCompatActivity {
         else
             mIsTablet = false;
 
-        //ButterKnife.bind(this);
+
+
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment recipeFragment = new Recipe_Fragment();
+
+        homeClick();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+
+        if (mIsTablet) {
+            Fragment rightSideFragment = getSupportFragmentManager().findFragmentById(R.id.recipe_container_tablet_right);
+
+            if (rightSideFragment instanceof Recipe_Fragment) {
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
+                        .replace(R.id.recipe_container_tablet_left, new Recipe_Tablet_Left_Fragment())
+                        .commit();
+            }
+        }
+
+    }
+
+    @OnClick(R.id.app_bar_home)
+    public void homeClick(){
 
         FragmentManager fm = getSupportFragmentManager();
         Fragment recipeFragment = new Recipe_Fragment();
@@ -70,24 +99,6 @@ public class Recipe_Activity extends AppCompatActivity {
                     .replace(R.id.recipe_container, recipeFragment)
                     .commit();
         }
-    }
-
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-
-        if (mIsTablet) {
-            Fragment rightSideFragment = getSupportFragmentManager().findFragmentById(R.id.recipe_container_tablet_right);
-
-            if (rightSideFragment instanceof Recipe_Fragment) {
-                getSupportFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
-                        .replace(R.id.recipe_container_tablet_left, new Recipe_Tablet_Left_Fragment())
-                        .commit();
-            }
-        }
-
     }
 
 }

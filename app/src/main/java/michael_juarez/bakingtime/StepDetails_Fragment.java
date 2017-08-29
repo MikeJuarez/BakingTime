@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,6 +70,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     @BindView(R.id.exo_play) ImageButton mExoPlayButton;
     @BindView(R.id.exo_pause) ImageButton mExoPauseButton;
     @BindView(R.id.step_details_exoplayerview) SimpleExoPlayerView mExoPlayer;
+    @BindView(R.id.step_details_recipeImageView) ImageView mRecipeImageView;
 
     private Unbinder unbinder;
     RecipeController mRecipeController;
@@ -119,6 +122,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     private void setUpUi(int stepPosition, int StepDetailPosition) {
         mStep = mRecipeController.getRecipeList().get(stepPosition).getSteps().get(StepDetailPosition);
         updateUi();
+        hideImageShowVideo();
         setUpExoPlayer();
     }
 
@@ -131,12 +135,17 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
         Uri mp4VideoUri = Uri.parse(mStep.getVideoUrl());
 
+        //If there is no video, check for thumbnail video
         if (mp4VideoUri.equals(Uri.EMPTY)) {
-            Toast.makeText(getActivity(), "Sorry, there is no video for this step.", Toast.LENGTH_LONG).show();
-            mExoPlayer.setPlayer(null);
-            return;
-        }
+            mp4VideoUri = Uri.parse(mStep.getThumbnailUrl());
 
+            //If there is no thumbnail video, then show a default image
+            if (mp4VideoUri.equals(Uri.EMPTY)) {
+                mExoPlayer.setPlayer(null);
+                hideVideoShowImage();
+                return;
+            }
+    }
         // 1. Create a default TrackSelector
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -189,6 +198,8 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
+                hideVideoShowImage();
+
                 switch (error.type) {
                     case ExoPlaybackException.TYPE_SOURCE:
                         Log.e(TAG, "TYPE_SOURCE: " + error.getSourceException().getMessage());
@@ -279,6 +290,21 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                     .replace(mContainer, stepDetailsFragment)
                     .commit();
+    }
+
+    private void hideVideoShowImage() {
+        mExoPlayer.setVisibility(View.INVISIBLE);
+        mRecipeImageView.setVisibility(View.VISIBLE);
+        /*String imageURL = mStep.getThumbnailUrl();
+        if (!imageURL.isEmpty())
+            Picasso.with(getActivity()).load(imageURL).into(mRecipeImageView);
+        else*/
+            mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
+    }
+
+    private void hideImageShowVideo() {
+        mExoPlayer.setVisibility(View.VISIBLE);
+        mRecipeImageView.setVisibility(View.INVISIBLE);
     }
 
 }

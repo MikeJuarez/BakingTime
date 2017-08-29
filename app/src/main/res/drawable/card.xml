@@ -10,8 +10,9 @@
     <item>
         <shape>
             <padding android:top="0dp" android:right="0dp" android:bottom="2dp" android:left="0dp" />
-            <solid android:color="@color/divider" />
+            <solid android:color="@color/divider_transparent" />
             <corners android:radius="5dp" />
+
         </shape>
     </item>
 

@@ -17,7 +17,8 @@
         android:id="@+id/step_details_exoplayerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingStart="4dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="8dp"
         android:paddingEnd="0dp"
         app:layout_constraintBottom_toTopOf="@+id/step_details_button_linearlayout"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,10 +26,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:resize_mode="fit"/>
 
+    <ImageView
+        android:id="@+id/step_details_recipeImageView"
+        android:src="@drawable/bakingtimelogo"
+        android:paddingTop="10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/step_details_button_linearlayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline40"
+        app:layout_constraintTop_toTopOf="parent"
+        android:adjustViewBounds="true"
+        android:visibility="invisible"/>
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/card"
         app:layout_constraintLeft_toRightOf="@id/guideline40"
         app:layout_constraintRight_toRightOf="parent"
@@ -38,8 +54,10 @@
             android:id="@+id/step_details_instruction_tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="8dp"
+            android:layout_gravity="center_vertical"
+            android:textAlignment="center"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:paddingBottom="8dp"
             style="@style/step_details_card_text">
         </TextView>

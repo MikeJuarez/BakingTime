@@ -2,80 +2,96 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_light">
 
-        <android.support.constraint.Guideline
-            android:layout_width="wrap_content"
+    <android.support.constraint.Guideline
+        android:id="@+id/step_details_guideline45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".45"/>
+
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+        android:id="@+id/step_details_exoplayerview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/step_details_guideline45"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:resize_mode="fit"/>
+
+    <ImageView
+        android:id="@+id/step_details_recipeImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bakingtimelogo"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/step_details_guideline45"/>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/card"
+        app:layout_constraintBottom_toTopOf="@+id/step_details_button_linearlayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/step_details_guideline45">
+
+        <TextView
+            android:id="@+id/step_details_instruction_tv"
+            style="@style/step_details_card_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:paddingBottom="8dp"
+            android:text="test"
+            android:textAlignment="center">
+        </TextView>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/step_details_button_linearlayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/step_details_previous_button"
+            style="@style/button_style"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:id="@+id/guideline40"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4"/>
-
-        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-            android:id="@+id/step_details_exoplayerview"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline40"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:resize_mode="fit"/>
-
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
             android:layout_margin="8dp"
-            android:background="@drawable/card"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/step_details_button_linearlayout"
-            app:layout_constraintTop_toTopOf="@+id/guideline40">
-                <TextView
-                    android:id="@+id/step_details_instruction_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:textAlignment="center"
+            android:layout_weight="1"
+            android:text="@string/step_detail_previous"/>
 
-                    android:layout_margin="8dp"
-                    android:paddingBottom="8dp"
-                    android:text="test"
-                    style="@style/step_details_card_text">
-                </TextView>
-        </ScrollView>
-
-        <LinearLayout
-            android:id="@+id/step_details_button_linearlayout"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/step_details_next_button"
+            style="@style/button_style"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:weightSum="2">
-
-                <Button
-                    android:id="@+id/step_details_previous_button"
-                    style="@style/button_style"
-                    android:layout_width="125dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:layout_weight="1"
-                    android:text="@string/step_detail_previous"/>
-                <Button
-                    android:id="@+id/step_details_next_button"
-                    android:layout_width="125dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/step_detail_next"
-                    style="@style/button_style"
-                    android:layout_weight="1"/>
-
-        </LinearLayout>
-
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:text="@string/step_detail_next"/>
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
