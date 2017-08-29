@@ -21,8 +21,9 @@ import michael_juarez.bakingtime.Model.Recipe;
 import michael_juarez.bakingtime.Model.Step;
 
 /**
- * This class uses the Singleton Pattern
- * This class
+ * This class uses the Singleton Pattern*
+ * This class ultimately fetches and holds Recipe Data
+ * Other classes will use this class to gain access to the data source
  */
 
 public class RecipeController {
@@ -44,7 +45,7 @@ public class RecipeController {
             return sRecipeController;
     }
 
-    public RecipeController(Context context, String recipeLocation, FinishedLoadingRecipeRequest finishedLoadingRecipeList){
+    private RecipeController(Context context, String recipeLocation, FinishedLoadingRecipeRequest finishedLoadingRecipeList){
         mFinishedLoadingRecipeList = finishedLoadingRecipeList;
         mRequestQueue = Volley.newRequestQueue(context);
         mRecipeLocation = recipeLocation;
@@ -119,10 +120,11 @@ public class RecipeController {
                 JSONObject JO = jsonArray.getJSONObject(i);
                 String id = JO.getString("id");
                 String shortDescription = JO.getString("shortDescription");
+                String description = JO.getString("description");
                 String videoUrl = JO.getString("videoURL");
                 String thumbnailUrl = JO.getString("thumbnailURL");
 
-                Step step = new Step(id, shortDescription, videoUrl, thumbnailUrl);
+                Step step = new Step(id, shortDescription, description, videoUrl, thumbnailUrl);
                 stepList.add(step);
             }
         } catch (Exception e) {

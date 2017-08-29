@@ -5,28 +5,30 @@
       android:orientation="vertical"
       android:layout_width="match_parent"
       android:layout_height="100dp"
-      android:background="@android:color/white"
-      android:layout_margin="8dp">
+      android:background="@color/icons">
     <TextView
         android:id="@+id/list_item_step_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="0dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="0dp"/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        style="@style/style_step"/>
     <TextView
         android:id="@+id/step_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="3dp"
+        app:layout_constraintBottom_toTopOf="@id/list_item_step_description"
         app:layout_constraintLeft_toLeftOf="parent"
-        style="@style/style_step"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:paddingStart="4dp"
+        android:paddingEnd="0dp"
+        style="@style/style_step_number"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -5,7 +5,10 @@
     <string name="toolbar_center_title">Baking Time App</string>
     <string name="ingredients">Tap here for this recipe\'s ingredients</string>
     <string name="step_number">Step\u0020</string>
+    <string name="servings">Servings</string>
 
     <string name="step_detail_previous">Previous</string>
     <string name="step_detail_next">Next</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

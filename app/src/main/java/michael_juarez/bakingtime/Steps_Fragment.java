@@ -3,6 +3,7 @@ package michael_juarez.bakingtime;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,9 +16,14 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import michael_juarez.bakingtime.Controller.RecipeController;
+import michael_juarez.bakingtime.Controller.ScreenSizeController;
 import michael_juarez.bakingtime.Model.Step;
+
+import static michael_juarez.bakingtime.R.id.step_details_next_button;
+import static michael_juarez.bakingtime.R.id.step_fragment_ingredient_ll;
 
 /**
  Step Pattern:
@@ -34,10 +40,13 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
     @BindView(R.id.step_rv) RecyclerView mRecipeRecyclerView;
 
     private Unbinder unbinder;
-    RecipeController mRecipeController;
-    RecyclerView.Adapter mAdapter;
-    int position;
-    ArrayList<Step> mStepsList;
+    private RecipeController mRecipeController;
+    private RecyclerView.Adapter mAdapter;
+    private int position;
+    private ArrayList<Step> mStepsList;
+
+    private int mContainer;
+    private boolean mIsTablet;
 
     public static final String KEY_POSITION = "michael_juarez.baketime.steps_fragment.key_position";
 
@@ -45,7 +54,12 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.step_fragment, container, false);
+        setRetainInstance(true);
         unbinder = ButterKnife.bind(this, view);
+
+        //Set up values for tablet-mode
+        mIsTablet = ScreenSizeController.getInstance(getActivity(), false, 0).getIsTablet();
+        mContainer = ScreenSizeController.getInstance(getActivity(), false, 0).getContainer();
 
         //Get mStepPosition from bundle passed in.
         position = getArguments().getInt(KEY_POSITION);
@@ -65,6 +79,9 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
 
         mAdapter = new StepAdapter(mStepsList);
         mRecipeRecyclerView.setAdapter(mAdapter);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecipeRecyclerView.getContext(),
+                layoutManager.getOrientation());
+        mRecipeRecyclerView.addItemDecoration(dividerItemDecoration);
 
         mIngredientTextView.setText(R.string.ingredients);
 
@@ -109,10 +126,16 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
             }
 
             public void bind(String stepDescription) {
-                String stepNumber = getActivity().getResources().getString(R.string.step_number);
-                stepNumber = stepNumber + (getAdapterPosition() + 1) + ": ";
+                int position = getAdapterPosition();
+
+                //"Recipe Introduction" (at position 0) is not a step, so skip it
+                if (position != 0) {
+                    String stepNumber = getActivity().getResources().getString(R.string.step_number);
+                    stepNumber = stepNumber + position + ": ";
+                    mStepNumber.setText(stepNumber);
+                }
                 mStepDescription.setText(stepDescription);
-                mStepNumber.setText(stepNumber);
+
             }
 
             @Override
@@ -123,14 +146,14 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
                 //Store the mStepPosition clicked in a new bundle
                 Bundle bundle = new Bundle();
                 bundle.putInt(Steps_Fragment.KEY_POSITION, position);
-                bundle.putInt(Step_Details_Fragment.KEY_POSITION, clickedPosition);
+                bundle.putInt(StepDetails_Fragment.KEY_POSITION, clickedPosition);
 
                 //Store the bundle inside a new Steps_Fragment
-                Fragment stepDetailsFragment = new Step_Details_Fragment();
+                Fragment stepDetailsFragment = new StepDetails_Fragment();
                 stepDetailsFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
-                        .replace(R.id.recipe_container, stepDetailsFragment)
+                        .replace(mContainer, stepDetailsFragment)
                         .addToBackStack(null)
                         .commit();
             }
@@ -142,10 +165,27 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
         super.onDestroyView();
         unbinder.unbind();
     }
+
     //TODO show error
     private void showError(){
         Log.d("STEPS_FRAGMENT", "showError() called.");
     }
+
+    @OnClick(step_fragment_ingredient_ll)
+    public void ingredientsButtonPressed() {
+        Bundle bundle = new Bundle();
+        bundle.putInt(StepIngredients_Fragment.STEP_INGREDIENTS_KEY_POSITION, position);
+
+        Fragment stepIngredientsFragment = new StepIngredients_Fragment();
+        stepIngredientsFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
+                .replace(mContainer, stepIngredientsFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
 }
 
 

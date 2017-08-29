@@ -7,12 +7,14 @@ package michael_juarez.bakingtime.Model;
 public class Step {
     private String mId;
     private String mShortDescription;
+    private String mDescription;
     private String mVideoUrl;
     private String mThumbnailUrl;
 
-    public Step(String id, String shortDescription, String videoUrl, String thumbnailUrl) {
+    public Step(String id, String shortDescription, String description, String videoUrl, String thumbnailUrl) {
         mId = id;
         mShortDescription = shortDescription;
+        mDescription = description;
         mVideoUrl = videoUrl;
         mThumbnailUrl = thumbnailUrl;
     }
@@ -33,6 +35,14 @@ public class Step {
         mShortDescription = shortDescription;
     }
 
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
+    }
+
     public String getVideoUrl() {
         return mVideoUrl;
     }
@@ -48,6 +58,8 @@ public class Step {
     public void setThumbnailUrl(String thumbnailUrl) {
         mThumbnailUrl = thumbnailUrl;
     }
+
+
 
 
 

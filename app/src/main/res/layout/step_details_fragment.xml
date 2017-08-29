@@ -3,68 +3,79 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/recyclerview_gradient_background">
+    android:background="@color/primary_light">
 
-    <LinearLayout
-        android:id="@+id/step_details_video_ll"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/step_details_instruction_tv"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/card">
-    </LinearLayout>
+        <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline40"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4"/>
 
-    <TextView
-        android:id="@+id/step_details_instruction_tv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/step_details_video_ll"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/step_details_previous_button"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/card">
-    </TextView>
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+            android:id="@+id/step_details_exoplayerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline40"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:resize_mode="fit"/>
 
-    <Button
-        android:id="@+id/step_details_previous_button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/step_details_instruction_tv"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/step_details_next_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/step_detail_previous">
-    </Button>
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/card"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/step_details_button_linearlayout"
+            app:layout_constraintTop_toTopOf="@+id/guideline40">
+                <TextView
+                    android:id="@+id/step_details_instruction_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:textAlignment="center"
 
-    <Button
-        android:id="@+id/step_details_next_button"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/step_details_instruction_tv"
-        app:layout_constraintLeft_toRightOf="@+id/step_details_previous_button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="@string/step_detail_next">
-    </Button>
+                    android:layout_margin="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="test"
+                    style="@style/step_details_card_text">
+                </TextView>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/step_details_button_linearlayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:weightSum="2">
+
+                <Button
+                    android:id="@+id/step_details_previous_button"
+                    style="@style/button_style"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/step_detail_previous"/>
+                <Button
+                    android:id="@+id/step_details_next_button"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/step_detail_next"
+                    style="@style/button_style"
+                    android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+
 </android.support.constraint.ConstraintLayout>
