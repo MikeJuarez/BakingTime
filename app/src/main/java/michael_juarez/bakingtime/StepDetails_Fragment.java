@@ -149,10 +149,14 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
             //If there is no thumbnail video, then show a default image
             if (mp4VideoUri.equals(Uri.EMPTY)) {
                 mExoPlayer.setPlayer(null);
-                hideVideoShowImage();
+                hideVideoShowImage("");
                 return;
             }
+
+            hideVideoShowImage(mp4VideoUri.toString());
+            return;
         }
+
         // 1. Create a default TrackSelector
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -205,7 +209,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
             @Override
             public void onPlayerError(ExoPlaybackException error) {
-                hideVideoShowImage();
+                hideVideoShowImage("");
 
                 switch (error.type) {
                     case ExoPlaybackException.TYPE_SOURCE:
@@ -300,14 +304,13 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
                 .commit();
     }
 
-    private void hideVideoShowImage() {
+    private void hideVideoShowImage(String imageURL) {
         mExoPlayer.setVisibility(View.INVISIBLE);
         mRecipeImageView.setVisibility(View.VISIBLE);
-        /*String imageURL = mStep.getThumbnailUrl();
         if (!imageURL.isEmpty())
             Picasso.with(getActivity()).load(imageURL).into(mRecipeImageView);
-        else*/
-        mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
+        else
+            mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
     }
 
     private void hideImageShowVideo() {
