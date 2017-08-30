@@ -233,7 +233,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         super.onDestroyView();
         unbinder.unbind();
     }
-    //TODO show error
+
     private void showError(){
         Log.d("STEPS_FRAGMENT", "showError() called.");
     }

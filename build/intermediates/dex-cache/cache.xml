@@ -3,12 +3,39 @@
 
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\ec36645267614f412c00fa466c63451075a207db\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\278cde28340ae066a10074d63070d46dbe33471f\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_46e2c5752736953926a97446bc0aec9340e9fd0d.jar" />
+        sha1="b0cc52f82a38613739bfded911ca385b75ff504f">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\classes_1aa71580fc80c90ac76a009e7be46a34a06f4f2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\3bd8ded83eb3547eef1d5f0310385dab2b29ca91\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_c11c2a9bab2900be07c95b0e6b3fe2f1527e90b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\cd445a584a991bb9d692938840adb617b5b9507d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fdffea03a90c6b623dc5b5b10fe067cfd3048715">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\classes_4da60f8172658a13d6ba72243e53ad79eb0a6770.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\junit-4.12_933bc758c6587ce6d05f58c444f41c3cf62ae0ed.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,21 +57,48 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\8f2db598fc4c3964f4ae2a44156f8443d32a2ab6\output\jars\classes.jar"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.android.apps.common.testing.accessibility.framework\accessibility-test-framework\2.0\7837f95bdff9f797003454247fef02b78d49ae75\accessibility-test-framework-2.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_092dfd27703800c5a47b3ab4df00fb5f70d5d596.jar" />
+        sha1="7837f95bdff9f797003454247fef02b78d49ae75">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\accessibility-test-framework-2.0_1fadd966e617f6de724a5fb1c3507d34f1b8ef7d.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\beef7ed472d38fe54952e64e313a9606b9449141\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\71bfcc120c010e67811a2cb57fb4d2ee3d81ce3c\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_88924854aa829487a196da5470f0ed0590bacda4.jar" />
+        sha1="40a6b8f05124eb9e6012e18b80a6dbd13440e283">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_9008d5d72b813a7337a700f4099aadd54c94633e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\net\sf\kxml\kxml2\2.3.0\kxml2-2.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ccbc77a5fd907ef863c29f3596c6f54ffa4e9442">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\kxml2-2.3.0_bf9411c82f3f7ced45d11ae31268a69ee59bd6dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\jsr305-2.0.1_22abbae15ffe2f74a6d57b543386d64435b49b19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\d6fa6f35fbf336a8e2d7be8c9bbc863451d3b25e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_f3d078534ea7cb3eabe9210df81bfd313880c5b0.jar" />
     </item>
     <item
         is-multidex="false"
@@ -56,13 +110,31 @@
         <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_3eb0b2b06e1efa20e6b9c331f83cff16e74ec428.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\8f2db598fc4c3964f4ae2a44156f8443d32a2ab6\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a5c674504b8e12ce4bd2135e1a938ca895695e1d\classes.dex" />
+        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_092dfd27703800c5a47b3ab4df00fb5f70d5d596.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\ac6cf51f6d4b8690941e20207b948e380e6007ff\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cad1364721fc716a39bdc351d3637edb634c9aa5">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_b9b2824ef91496c18fbc1c4c47210ec8b6032920.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\cea490c95612715e678dfca92863cdda9c0578a4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4961be1437163ab598620a3c907c0f3432936f51">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_628bc092436aeccd4942a991dc767ec3bdc5a328.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,12 +147,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\javax.inject-1_ed056cf491007105d54d8d8bd5fe559657696c95.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.7.0\2637055420a2da406e3ea9920c2ff4aafd38c970\butterknife-annotations-8.7.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="2637055420a2da406e3ea9920c2ff4aafd38c970">
         <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\butterknife-annotations-8.7.0_fdfb9a9f702164095718055ccf60eaaaef6faa76.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-integration\1.3\5de0c73fef18917cd85d0ab70bb23818685e4dfd\hamcrest-integration-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-integration-1.3_ef9693e7bb02cdcc880580347637b1126fc21077.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,12 +183,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\4d4c028ed30918cbe740e67d33d62c9060d5e860\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\b63710a7849a443ae67631646321346d533f6065\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_07c1308e05e50d4914c8818524323bd4ccc5cfa4.jar" />
+        sha1="f42cd459be08d98d05abb5f5361d057726e8f126">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\classes_8dce53c4ef597689b26d7af206632d38efe78a6a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -120,15 +210,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\3d02907613016ae62b93003fef65c6869e7c8ac3\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8bac503d591e9f8c4edecf54028e5c2a5178a009">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_0992f4eed788465596b025f86af3bbb91b95fda2.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\user\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
         jumboMode="false"
         optimize="true"
@@ -138,12 +219,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\8109b90d06583cf1869e89c166db22240d877bd9\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\3d02907613016ae62b93003fef65c6869e7c8ac3\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_ef4360e7f6ca5683b6f89a8e7f1e8536c03d3cd7.jar" />
+        sha1="8bac503d591e9f8c4edecf54028e5c2a5178a009">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_0992f4eed788465596b025f86af3bbb91b95fda2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\5816ba0dd8df8f3be2139ef2825e8f944a37ac2a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c879101226d1b2aaf6edae3d7491de6fd56d2659">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_857c47bd87f3958205eac8dfcf05c4377faeb548.jar" />
     </item>
     <item
         is-multidex="false"
@@ -165,30 +255,30 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\91c1ad283c1f86dcf4f058fc49e23a9c7e7b0696\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\aaaaf63fa3abfeb7fb4e28751c7ca11f40f45732\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_bcbac6f07f863f6662c683f8860b1f21e034bd3e.jar" />
+        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_e836c6c31d4ac4efc8d7b971dd231771bfdcb36f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\75a7eb463e168f8001f5aab26e77ad22191066d3\output\jars\classes.jar"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_a94438de3fac69c325b00bd720b03fa05a232dab.jar" />
+        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-core-1.3_5861875293229376e229c3b7ebe6264692a5cea4.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\443071cdaae57a2150b9e4f8614b1a48eb447ac9\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\8b6627527409078ecea0b15e06eeda23b35bc25e\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_cd6a81e67f7dc9f4863b63a0a3137769c9be5ac2.jar" />
+        sha1="b7c3356ac054fb47f7b8ff90c2fb68531308eb00">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\classes_12a43cf53fac484719fbc5a018a21632235b0876.jar" />
     </item>
     <item
         is-multidex="false"
@@ -210,30 +300,66 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\9b2bad3615dcc5be9411b969a954aed47cd3d6f9\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\25b30a3af68a0bef99af44ec6debd3a998a63d4c\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_b83e20ae9752107958dd0468fbf72877fd2dfaed.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ec00d7cab3a019c06899679b4df7d5285fb85a3d">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_650d69b65b8363ac2617672424646eb797df56db\classes.dex" />
+        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_0d9d80d6403bb9aedafc8016cf51c4db4fcc6abe.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\user\.android\build-cache\219fe4c94122706467b62dcbb96ca5b7e93dacf7\output\jars\classes.jar"
+        jar="C:\Users\user\.android\build-cache\54d19ce51540ebc3d3bc7eb10ee5b840d5c99740\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_884cb6e1f54830ee9c5f438843243c702c4d8f25.jar" />
+        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_5acbcaca71b2bb534514cb55bf76d9d1e8aadda2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\f7e957d8c8bb8486edfc81e4c73370d405fa5384\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_1aa2f49370ca4e294afbabd11363faf6f4c45fc9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\4d9d66d935e0e824a92358c7431ca5ee463852d0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\debug\classes_a47a259668281b7e8c2ce8b1c3e68bdc2ea84075.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup\javawriter\2.1.1\67ff45d9ae02e583d0f9b3432a5ebbe05c30c966\javawriter-2.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\javawriter-2.1.1_0e80439ce6338683df03d4cd1c7df2580025e03f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-library\1.3\4785a3c21320980282f9f33d0d1264a69040538f\hamcrest-library-1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-library-1.3_204fb4449b7efeeab0a9ede313609d9693f09b38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\user\.android\build-cache\3178dca6e081578effed1b8255b60a97aa20dc39\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a6295621aab3a37ea2500e9e1a2829175313372c">
+        <dex dex="C:\AndroidStudioProjects\Nanodegree\BakingTime\app\build\intermediates\pre-dexed\androidTest\debug\classes_3b6d1c91a9b0b2c1a2c25dbad3d050b6d4023e0e.jar" />
     </item>
 
 </items>

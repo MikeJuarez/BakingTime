@@ -166,7 +166,7 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
         unbinder.unbind();
     }
 
-    //TODO show error
+
     private void showError(){
         Log.d("STEPS_FRAGMENT", "showError() called.");
     }

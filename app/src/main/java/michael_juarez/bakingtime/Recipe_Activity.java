@@ -83,12 +83,12 @@ public class Recipe_Activity extends AppCompatActivity {
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                     .replace(R.id.recipe_container_tablet_left, recipeTabletLeft)
-                    .commit();
+                    .commitNow();
 
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                     .replace(R.id.recipe_container_tablet_right, recipeFragment)
-                    .commit();
+                    .commitNow();
         }
         //If this device is not a tablet, then load recipe fragment into phone container
         else {
@@ -97,7 +97,7 @@ public class Recipe_Activity extends AppCompatActivity {
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                     .replace(R.id.recipe_container, recipeFragment)
-                    .commit();
+                    .commitNow();
         }
     }
 
