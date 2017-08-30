@@ -1,7 +1,6 @@
 package michael_juarez.bakingtime;
 
 
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +24,8 @@ import michael_juarez.bakingtime.Controller.ScreenSizeController;
 
 public class Recipe_Activity extends AppCompatActivity {
 
-    @BindView(R.id.recipe_activity_toolbar) Toolbar mToolBar;
+    @BindView(R.id.recipe_activity_toolbar)
+    Toolbar mToolBar;
 
     private boolean mIsTablet;
 
@@ -45,7 +45,6 @@ public class Recipe_Activity extends AppCompatActivity {
             mIsTablet = false;
 
 
-
         FragmentManager fm = getSupportFragmentManager();
         Fragment recipeFragment = new Recipe_Fragment();
 
@@ -53,8 +52,7 @@ public class Recipe_Activity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
 
         if (mIsTablet) {
@@ -71,7 +69,7 @@ public class Recipe_Activity extends AppCompatActivity {
     }
 
     @OnClick(R.id.app_bar_home)
-    public void homeClick(){
+    public void homeClick() {
 
         FragmentManager fm = getSupportFragmentManager();
         Fragment recipeFragment = new Recipe_Fragment();
@@ -92,7 +90,7 @@ public class Recipe_Activity extends AppCompatActivity {
         }
         //If this device is not a tablet, then load recipe fragment into phone container
         else {
-            ScreenSizeController.getInstance(this, mIsTablet,R.id.recipe_container);
+            ScreenSizeController.getInstance(this, mIsTablet, R.id.recipe_container);
             //Load the recipe fragment
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)

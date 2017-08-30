@@ -1,18 +1,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+                android:id="@+id/widget_rl"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/toolbar_brown"
                 android:padding="@dimen/widget_margin">
 
     <ImageView
-        android:id="@+id/widget_rl"
-        android:layout_width="match_parent"
+        android:id="@+id/widget_iv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-
-        android:src="@drawable/bakingtimelogo"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bakingtimelogo"/>
+
+    <TextView
+        android:id="@+id/widget_tv"
+        style="@style/widget_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/widget_iv"
+        android:layout_alignLeft="@id/widget_iv"
+        android:layout_alignRight="@id/widget_iv"
+        android:layout_alignTop="@id/widget_iv"
+        android:layout_margin="16dp"
+        android:background="@color/card_transparent"
+        android:padding="16dp"/>
 
 </RelativeLayout>

@@ -25,7 +25,8 @@ import michael_juarez.bakingtime.Model.Ingredient;
 public class StepIngredients_Fragment extends Fragment {
     public static String STEP_INGREDIENTS_KEY_POSITION = "michael_juarez.baketime.step_ingredients_fragment.key_position";
 
-    @BindView(R.id.step_ingredients_rv) RecyclerView mRecyclerView;
+    @BindView(R.id.step_ingredients_rv)
+    RecyclerView mRecyclerView;
 
     private RecipeController mRecipeController;
     private int mPosition;
@@ -65,17 +66,19 @@ public class StepIngredients_Fragment extends Fragment {
 
         private ArrayList mAdapterIngredientsList;
 
-        public IngredientsAdapter(ArrayList ingredientsList) {mAdapterIngredientsList = ingredientsList;}
+        public IngredientsAdapter(ArrayList ingredientsList) {
+            mAdapterIngredientsList = ingredientsList;
+        }
 
         @Override
         public IngredientsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
             return new IngredientsViewHolder(layoutInflater, parent);
-            }
+        }
 
         @Override
         public void onBindViewHolder(IngredientsViewHolder holder, int position) {
-            holder.bind((Ingredient)mAdapterIngredientsList.get(position));
+            holder.bind((Ingredient) mAdapterIngredientsList.get(position));
         }
 
         @Override
@@ -84,16 +87,19 @@ public class StepIngredients_Fragment extends Fragment {
         }
 
         public class IngredientsViewHolder extends RecyclerView.ViewHolder {
-            @BindView(R.id.list_item_ingredient_name_tv) TextView mIngredientNameTextView;
-            @BindView(R.id.list_item_ingredient_quantity_tv) TextView mIngredientQuantity;
-            @BindView(R.id.list_item_ingredient_measure_tv) TextView mIngredientMeasure;
+            @BindView(R.id.list_item_ingredient_name_tv)
+            TextView mIngredientNameTextView;
+            @BindView(R.id.list_item_ingredient_quantity_tv)
+            TextView mIngredientQuantity;
+            @BindView(R.id.list_item_ingredient_measure_tv)
+            TextView mIngredientMeasure;
 
             public IngredientsViewHolder(LayoutInflater inflater, ViewGroup parent) {
                 super(inflater.inflate(R.layout.list_item_ingredient, parent, false));
                 ButterKnife.bind(this, itemView);
             }
 
-            public void bind(Ingredient ingredient){
+            public void bind(Ingredient ingredient) {
                 mIngredientNameTextView.setText(ingredient.getIngredient());
                 mIngredientQuantity.setText(ingredient.getQuantity());
                 mIngredientMeasure.setText(ingredient.getMeasure());

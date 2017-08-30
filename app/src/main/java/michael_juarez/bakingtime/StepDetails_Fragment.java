@@ -53,24 +53,31 @@ import static michael_juarez.bakingtime.R.id.step_details_next_button;
 import static michael_juarez.bakingtime.R.id.step_details_previous_button;
 
 /**
- Step Pattern:
- private String mId;
- private String mShortDescription;
- private String mVideoUrl;
- private String mThumbnailUrl;
+ * Step Pattern:
+ * private String mId;
+ * private String mShortDescription;
+ * private String mVideoUrl;
+ * private String mThumbnailUrl;
  */
 
 public class StepDetails_Fragment extends Fragment implements RecipeController.FinishedLoadingRecipeRequest {
 
     //Assign the fragment's RecyclerView to a variable using ButterKnife Library
-    @BindView(R.id.step_details_instruction_tv) TextView mInstructionTextView;
+    @BindView(R.id.step_details_instruction_tv)
+    TextView mInstructionTextView;
 
-    @BindView(R.id.step_details_previous_button) Button mPreviousButton;
-    @BindView(R.id.step_details_next_button) Button mNextButton;
-    @BindView(R.id.exo_play) ImageButton mExoPlayButton;
-    @BindView(R.id.exo_pause) ImageButton mExoPauseButton;
-    @BindView(R.id.step_details_exoplayerview) SimpleExoPlayerView mExoPlayer;
-    @BindView(R.id.step_details_recipeImageView) ImageView mRecipeImageView;
+    @BindView(R.id.step_details_previous_button)
+    Button mPreviousButton;
+    @BindView(R.id.step_details_next_button)
+    Button mNextButton;
+    @BindView(R.id.exo_play)
+    ImageButton mExoPlayButton;
+    @BindView(R.id.exo_pause)
+    ImageButton mExoPauseButton;
+    @BindView(R.id.step_details_exoplayerview)
+    SimpleExoPlayerView mExoPlayer;
+    @BindView(R.id.step_details_recipeImageView)
+    ImageView mRecipeImageView;
 
     private Unbinder unbinder;
     RecipeController mRecipeController;
@@ -107,7 +114,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
         if (mStepDetailPosition == 0)
             mPreviousButton.setVisibility(View.INVISIBLE);
-        else if (mStepDetailPosition+1 == mStepDetailCount)
+        else if (mStepDetailPosition + 1 == mStepDetailCount)
             mNextButton.setVisibility(View.INVISIBLE);
 
         if (mStepPosition < 0)
@@ -145,7 +152,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
                 hideVideoShowImage();
                 return;
             }
-    }
+        }
         // 1. Create a default TrackSelector
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -234,12 +241,13 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         unbinder.unbind();
     }
 
-    private void showError(){
+    private void showError() {
         Log.d("STEPS_FRAGMENT", "showError() called.");
     }
 
     @Override
-    public void finishedLoadingList() {}
+    public void finishedLoadingList() {
+    }
 
     @Override
     public void onPause() {
@@ -267,7 +275,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
         mStepDetailPosition++;
         mPreviousButton.setVisibility(View.VISIBLE);
-        if ((mStepDetailPosition+1) == mStepDetailCount)
+        if ((mStepDetailPosition + 1) == mStepDetailCount)
             mNextButton.setVisibility(View.INVISIBLE);
 
         setUpUi(mStepPosition, mStepDetailPosition);
@@ -283,13 +291,13 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         bundle.putInt(StepDetails_Fragment.KEY_POSITION, mStepDetailPosition);
 
 
-            //Store the bundle inside a new Steps_Fragment
-            Fragment stepDetailsFragment = new StepDetails_Fragment();
-            stepDetailsFragment.setArguments(bundle);
-            getFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
-                    .replace(mContainer, stepDetailsFragment)
-                    .commit();
+        //Store the bundle inside a new Steps_Fragment
+        Fragment stepDetailsFragment = new StepDetails_Fragment();
+        stepDetailsFragment.setArguments(bundle);
+        getFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
+                .replace(mContainer, stepDetailsFragment)
+                .commit();
     }
 
     private void hideVideoShowImage() {
@@ -299,7 +307,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         if (!imageURL.isEmpty())
             Picasso.with(getActivity()).load(imageURL).into(mRecipeImageView);
         else*/
-            mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
+        mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
     }
 
     private void hideImageShowVideo() {

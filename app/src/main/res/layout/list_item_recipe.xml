@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_margin="8dp">
-        <ImageView
-            android:id="@+id/list_item_recipe_iv"
-            android:src="@drawable/bakery_goods"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:paddingTop="4dp"
-            android:layout_margin="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/recipe_name_tv"/>
-        <TextView
-            android:id="@+id/recipe_name_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/recipe_card_text"
-            app:layout_constraintTop_toBottomOf="@id/list_item_recipe_iv"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:paddingBottom="8dp"
-            android:paddingStart="8dp"
-            android:paddingEnd="0dp"/>
+    android:layout_margin="8dp"
+    android:background="@drawable/card">
+
+    <ImageView
+        android:id="@+id/list_item_recipe_iv"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_margin="8dp"
+        android:paddingTop="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bakery_goods"
+        app:layout_constraintBottom_toTopOf="@+id/recipe_name_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/recipe_name_tv"
+        style="@style/recipe_card_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingEnd="0dp"
+        android:paddingStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/list_item_recipe_iv"/>
 
 
 </android.support.constraint.ConstraintLayout>

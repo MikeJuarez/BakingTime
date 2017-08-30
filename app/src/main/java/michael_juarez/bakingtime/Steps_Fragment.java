@@ -1,6 +1,11 @@
 package michael_juarez.bakingtime;
 
 
+import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,9 +15,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,24 +27,27 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import michael_juarez.bakingtime.Controller.RecipeController;
 import michael_juarez.bakingtime.Controller.ScreenSizeController;
+import michael_juarez.bakingtime.Model.Ingredient;
 import michael_juarez.bakingtime.Model.Step;
 
 import static michael_juarez.bakingtime.R.id.step_details_next_button;
 import static michael_juarez.bakingtime.R.id.step_fragment_ingredient_ll;
 
 /**
- Step Pattern:
- private String mId;
- private String mShortDescription;
- private String mVideoUrl;
- private String mThumbnailUrl;
+ * Step Pattern:
+ * private String mId;
+ * private String mShortDescription;
+ * private String mVideoUrl;
+ * private String mThumbnailUrl;
  */
 
 public class Steps_Fragment extends Fragment implements RecipeController.FinishedLoadingRecipeRequest {
 
     //Assign the fragment's RecyclerView to a variable using ButterKnife Library
-    @BindView(R.id.step_ingredient_tv) TextView mIngredientTextView;
-    @BindView(R.id.step_rv) RecyclerView mRecipeRecyclerView;
+    @BindView(R.id.step_ingredient_tv)
+    TextView mIngredientTextView;
+    @BindView(R.id.step_rv)
+    RecyclerView mRecipeRecyclerView;
 
     private Unbinder unbinder;
     private RecipeController mRecipeController;
@@ -63,7 +73,7 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
 
         //Get mStepPosition from bundle passed in.
         position = getArguments().getInt(KEY_POSITION);
-        if (position < 0 )
+        if (position < 0)
             showError();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
@@ -85,11 +95,13 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
 
         mIngredientTextView.setText(R.string.ingredients);
 
+        updateWidgetScreen(mRecipeController.getRecipeList().get(position).getIngredients());
         return view;
     }
 
     @Override
-    public void finishedLoadingList() {}
+    public void finishedLoadingList() {
+    }
 
     //Define the RecyclerView's Adapter
     public class StepAdapter extends RecyclerView.Adapter<StepAdapter.StepViewHolder> {
@@ -115,9 +127,11 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
             return mStepList.size();
         }
 
-        public class StepViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-            @BindView(R.id.list_item_step_description) TextView mStepDescription;
-            @BindView(R.id.step_number) TextView mStepNumber;
+        public class StepViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+            @BindView(R.id.list_item_step_description)
+            TextView mStepDescription;
+            @BindView(R.id.step_number)
+            TextView mStepNumber;
 
             public StepViewHolder(LayoutInflater inflater, ViewGroup parent) {
                 super(inflater.inflate(R.layout.list_item_step, parent, false));
@@ -167,7 +181,7 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
     }
 
 
-    private void showError(){
+    private void showError() {
         Log.d("STEPS_FRAGMENT", "showError() called.");
     }
 
@@ -184,6 +198,21 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
                 .replace(mContainer, stepIngredientsFragment)
                 .addToBackStack(null)
                 .commit();
+    }
+
+    private void updateWidgetScreen(List<Ingredient> ingredientArrayList) {
+        String ingredients = "Ingredient List: \n";
+
+        int c = 0;
+        for (Ingredient i : ingredientArrayList) {
+            c++;
+            ingredients = ingredients
+                    + c + ": "
+                    + i.getIngredient() + ": "
+                    + i.getQuantity() + " "
+                    + i.getMeasure() + "\n";
+        }
+        WidgetUpdateService.startWidgetUpdate(getActivity(), ingredients);
     }
 
 }
