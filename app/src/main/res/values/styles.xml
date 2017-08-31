@@ -48,7 +48,7 @@
 
     <style name="widget_text">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 

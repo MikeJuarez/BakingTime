@@ -88,15 +88,15 @@ public class Recipe_Activity extends AppCompatActivity {
                     .replace(R.id.recipe_container_tablet_right, recipeFragment)
                     .commitNow();
         }
+
         //If this device is not a tablet, then load recipe fragment into phone container
-        else {
-            ScreenSizeController.getInstance(this, mIsTablet, R.id.recipe_container);
-            //Load the recipe fragment
-            fm.beginTransaction()
-                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
-                    .replace(R.id.recipe_container, recipeFragment)
-                    .commitNow();
-        }
+        ScreenSizeController.getInstance(this, mIsTablet, R.id.recipe_container);
+        //Load the recipe fragment
+        fm.beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.recipe_container, recipeFragment)
+                .commitNow();
+
     }
 
 }
