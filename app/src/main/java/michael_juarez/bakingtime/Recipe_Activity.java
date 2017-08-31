@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import michael_juarez.bakingtime.Controller.RecipeController;
 import michael_juarez.bakingtime.Controller.ScreenSizeController;
 
 /*
@@ -44,10 +45,6 @@ public class Recipe_Activity extends AppCompatActivity {
         else
             mIsTablet = false;
 
-
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment recipeFragment = new Recipe_Fragment();
-
         homeClick();
     }
 
@@ -70,7 +67,6 @@ public class Recipe_Activity extends AppCompatActivity {
 
     @OnClick(R.id.app_bar_home)
     public void homeClick() {
-
         FragmentManager fm = getSupportFragmentManager();
         Fragment recipeFragment = new Recipe_Fragment();
 
@@ -87,10 +83,12 @@ public class Recipe_Activity extends AppCompatActivity {
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                     .replace(R.id.recipe_container_tablet_right, recipeFragment)
                     .commitNow();
+            return;
         }
 
         //If this device is not a tablet, then load recipe fragment into phone container
         ScreenSizeController.getInstance(this, mIsTablet, R.id.recipe_container);
+
         //Load the recipe fragment
         fm.beginTransaction()
                 .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)

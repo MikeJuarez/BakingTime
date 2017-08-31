@@ -29,11 +29,12 @@ import michael_juarez.bakingtime.Model.Step;
 public class RecipeController {
 
     private static RecipeController sRecipeController;
-    private ArrayList<Recipe> mRecipeList;
-    private String mRecipeLocation;
-    RequestQueue mRequestQueue;
+    private  ArrayList<Recipe> mRecipeList;
+    private  String mRecipeLocation;
+    private  RequestQueue mRequestQueue;
+    private static JsonArrayRequest jsonArrayRequest;
 
-    private FinishedLoadingRecipeRequest mFinishedLoadingRecipeList;
+    private static FinishedLoadingRecipeRequest mFinishedLoadingRecipeList;
 
     //Use Singleton pattern to create Controller
     public static RecipeController getInstance(Context context, String recipeLocation, FinishedLoadingRecipeRequest finishedLoadingRecipeList) {
@@ -55,7 +56,7 @@ public class RecipeController {
     //Create a new recipe list from Udacity JSON file using Volley Library
     public ArrayList<Recipe> getRecipeListNetwork(){
         mRecipeList = new ArrayList<>();
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,
+        jsonArrayRequest = new JsonArrayRequest(Request.Method.GET,
             mRecipeLocation,
             null,
             new Response.Listener<JSONArray>() {
@@ -72,20 +73,20 @@ public class RecipeController {
                             String servings = JO.getString("servings");  // Get servings
                             String image = JO.getString("image");
 
-                            Recipe recipe = new Recipe(id, name, ingredients, steps, servings);
+                            Recipe recipe = new Recipe(id, name, ingredients, steps, servings, image);
                             mRecipeList.add(recipe);
                         }
                     } catch(JSONException e){
                         e.printStackTrace();
                         return;
                     }
-                    mFinishedLoadingRecipeList.finishedLoadingList();
+                    mFinishedLoadingRecipeList.finishedLoadingList(false);
                 }
             },
             new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d("Debug", error.toString());
+                    mFinishedLoadingRecipeList.finishedLoadingList(true);
                 }
             });
 
@@ -107,7 +108,7 @@ public class RecipeController {
                 ingredientList.add(ingredient);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            mFinishedLoadingRecipeList.finishedLoadingList(true);
         }
         return ingredientList;
 
@@ -128,9 +129,14 @@ public class RecipeController {
                 stepList.add(step);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            mFinishedLoadingRecipeList.finishedLoadingList(true);
         }
         return stepList;
+    }
+
+    public static void cancelJsonRequest() {
+        if (jsonArrayRequest != null && !jsonArrayRequest.hasHadResponseDelivered())
+            jsonArrayRequest.cancel();
     }
 
     //Return the populed recipe list
@@ -139,6 +145,6 @@ public class RecipeController {
     }
 
     public interface FinishedLoadingRecipeRequest {
-        void finishedLoadingList();
+        void finishedLoadingList(boolean hadError);
     }
 }

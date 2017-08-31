@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 import michael_juarez.bakingtime.Controller.RecipeController;
 import michael_juarez.bakingtime.Controller.ScreenSizeController;
@@ -34,6 +33,7 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
     //Assign the fragment's RecyclerView to a variable using ButterKnife Library
     @BindView(R.id.recipe_rv) RecyclerView mRecipeRecyclerView;
     private Unbinder unbinder;
+    @BindView(R.id.recipe_fragment_error_tv) TextView mErrorTextView;
 
     RecipeController mRecipeController;
 
@@ -60,8 +60,9 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
         mRecipeRecyclerView.setAdapter(mAdapter);
 
         mRecipeController = RecipeController.getInstance(getActivity(), getResources().getString(R.string.recipe_location), this);
+
         if (mRecipeController.getRecipeList() != null)
-            finishedLoadingList();
+            finishedLoadingList(false);
 
         return view;
     }
@@ -85,7 +86,13 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
         }
     }
     @Override
-    public void finishedLoadingList() {
+    public void finishedLoadingList(boolean hadError) {
+        if (hadError){
+            mErrorTextView.setVisibility(VISIBLE);
+            mRecipeRecyclerView.setVisibility(INVISIBLE);
+            return;
+        }
+
         mAdapter = new RecipeAdapter(mRecipeController.getRecipeList());
         mRecipeRecyclerView.setAdapter(mAdapter);
     }
@@ -176,6 +183,7 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        mRecipeController.cancelJsonRequest();
         unbinder.unbind();
     }
 

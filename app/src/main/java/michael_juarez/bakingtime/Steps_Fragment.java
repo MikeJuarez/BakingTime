@@ -100,7 +100,7 @@ public class Steps_Fragment extends Fragment implements RecipeController.Finishe
     }
 
     @Override
-    public void finishedLoadingList() {
+    public void finishedLoadingList(boolean hadError) {
     }
 
     //Define the RecyclerView's Adapter

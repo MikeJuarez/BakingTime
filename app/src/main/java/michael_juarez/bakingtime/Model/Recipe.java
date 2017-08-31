@@ -12,14 +12,15 @@ public class Recipe {
     private List<Ingredient> mIngredients;
     private List<Step> mSteps;
     private String mServings;
-    //private String mImage;
+    private String mImage;
 
-    public Recipe(String id, String name, List<Ingredient> ingredients, List<Step> steps, String servings) {
+    public Recipe(String id, String name, List<Ingredient> ingredients, List<Step> steps, String servings, String image) {
         mId = id;
         mName = name;
         mIngredients = ingredients;
         mSteps = steps;
         mServings = servings;
+        mImage = image;
     }
 
     public String getId() {
@@ -62,11 +63,11 @@ public class Recipe {
         mServings = servings;
     }
 
-/*    public String getImage() {
+    public String getImage() {
         return mImage;
     }
 
     public void setImage(String image) {
         mImage = image;
-    }*/
+    }
 }

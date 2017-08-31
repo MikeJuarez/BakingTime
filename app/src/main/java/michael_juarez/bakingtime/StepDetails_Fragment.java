@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlaybackException;
-import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.Player;
@@ -80,18 +80,23 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     ImageView mRecipeImageView;
 
     private Unbinder unbinder;
-    RecipeController mRecipeController;
+    private RecipeController mRecipeController;
     private int mStepPosition;
     private int mStepDetailPosition;
     private Step mStep;
     private int mStepDetailCount;
+    private String mRecipeImageURL;
 
     private int mContainer;
     private boolean mIsTablet;
 
+    private int mResumeWindow;
+    private long mResumePosition;
     private SimpleExoPlayer player;
 
     public static final String KEY_POSITION = "michael_juarez.baketime.steps_details_fragment.key_position";
+    private static final String KEY_EXOPLAYER_RESUME_WINDOW = "michael_juarez.baketime.steps_details_fragment.key_exoplayer_resumewindow";
+    private static final String KEY_EXOPLAYER_RESUME_POSITION = "michael_juarez.baketime.steps_details_fragment.key_exoplayer_resumeposition";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -106,9 +111,24 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
         mRecipeController = RecipeController.getInstance(getActivity(), getResources().getString(R.string.recipe_location), this);
 
-        //Get mStepPosition from bundle passed in.
+        //Get image url for this step
+        mRecipeImageURL = mRecipeController.getRecipeList().get(mStepPosition).getImage();
+
+        //Get Bundle Information that may have been passed in
         mStepPosition = getArguments().getInt(Steps_Fragment.KEY_POSITION);
         mStepDetailPosition = getArguments().getInt(StepDetails_Fragment.KEY_POSITION);
+        mResumeWindow = getArguments().getInt(KEY_EXOPLAYER_RESUME_WINDOW);
+        mResumePosition = getArguments().getLong(KEY_EXOPLAYER_RESUME_POSITION);
+
+        setUpUi(mStepPosition, mStepDetailPosition);
+
+        return view;
+    }
+
+    private void setUpUi(int stepPosition, int StepDetailPosition) {
+        //Set up next and previous buttons
+        if (mStepPosition < 0)
+            showError();
 
         mStepDetailCount = mRecipeController.getRecipeList().get(mStepPosition).getSteps().size();
 
@@ -117,16 +137,6 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         else if (mStepDetailPosition + 1 == mStepDetailCount)
             mNextButton.setVisibility(View.INVISIBLE);
 
-        if (mStepPosition < 0)
-            showError();
-
-        setUpUi(mStepPosition, mStepDetailPosition);
-
-
-        return view;
-    }
-
-    private void setUpUi(int stepPosition, int StepDetailPosition) {
         mStep = mRecipeController.getRecipeList().get(stepPosition).getSteps().get(StepDetailPosition);
         updateUi();
         hideImageShowVideo();
@@ -142,40 +152,49 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
         Uri mp4VideoUri = Uri.parse(mStep.getVideoUrl());
 
-        //If there is no video, check for thumbnail video
-        if (mp4VideoUri.equals(Uri.EMPTY)) {
-            mp4VideoUri = Uri.parse(mStep.getThumbnailUrl());
+        //If there is no video, check for image
+        if (TextUtils.isEmpty(mp4VideoUri.toString())) {
+            String imageURL = Uri.parse(mRecipeImageURL).toString();
 
             //If there is no thumbnail video, then show a default image
-            if (mp4VideoUri.equals(Uri.EMPTY)) {
+            if (TextUtils.isEmpty(imageURL)) {
                 mExoPlayer.setPlayer(null);
                 hideVideoShowImage("");
                 return;
             }
 
-            hideVideoShowImage(mp4VideoUri.toString());
+            hideVideoShowImage(imageURL);
             return;
         }
 
-        // 1. Create a default TrackSelector
-        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
-        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
-        TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+        boolean needNewPlayer = player == null;
 
-        // 2. Create the player
-        player = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector);
+        if (needNewPlayer) {
 
-        // Produces DataSource instances through which media data is loaded.
-        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getActivity(),
-                Util.getUserAgent(getActivity(), "BakingTime"));
-        // Produces Extractor instances for parsing the media data.
-        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
-        // This is the MediaSource representing the media to be played.
-        MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
-                dataSourceFactory, extractorsFactory, null, null);
+            // 1. Create a default TrackSelector
+            BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+            TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
+            TrackSelector trackSelector = new DefaultTrackSelector(videoTrackSelectionFactory);
+
+            // 2. Create the player
+            player = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector);
+
+            // Produces DataSource instances through which media data is loaded.
+            DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(getActivity(),
+                    Util.getUserAgent(getActivity(), "BakingTime"));
+            // Produces Extractor instances for parsing the media data.
+            ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+            // This is the MediaSource representing the media to be played.
+            MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
+                    dataSourceFactory, extractorsFactory, null, null);
+            boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
+            if (haveResumePosition) {
+                player.seekTo(mResumeWindow, mResumePosition);
+            }
+            player.prepare(videoSource);
+        }
+
         // Prepare the player with the source.
-
-        player.prepare(videoSource);
 
         player.setPlayWhenReady(true);
 
@@ -250,14 +269,44 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     }
 
     @Override
-    public void finishedLoadingList() {
+    public void finishedLoadingList(boolean hadError) {
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (player != null)
+        if (Util.SDK_INT <= 23) {
+            releasePlayer();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if ((Util.SDK_INT <= 23 || player == null)) {
+            setUpExoPlayer();
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Util.SDK_INT > 23) {
+            releasePlayer();
+        }
+    }
+
+    private void releasePlayer() {
+        if (player != null) {
+            updateResumePosition();
             player.release();
+            player = null;
+        }
+    }
+
+    private void updateResumePosition() {
+        mResumeWindow = player.getCurrentWindowIndex();
+        mResumePosition = Math.max(0, player.getContentPosition());
     }
 
     @OnClick(step_details_previous_button)
@@ -288,12 +337,14 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        updateResumePosition();
 
         //Store the mStepPosition clicked in a new bundle
         Bundle bundle = new Bundle();
         bundle.putInt(Steps_Fragment.KEY_POSITION, mStepPosition);
         bundle.putInt(StepDetails_Fragment.KEY_POSITION, mStepDetailPosition);
-
+        bundle.putInt(KEY_EXOPLAYER_RESUME_WINDOW, mResumeWindow);
+        bundle.putLong(KEY_EXOPLAYER_RESUME_POSITION, mResumePosition);
 
         //Store the bundle inside a new Steps_Fragment
         Fragment stepDetailsFragment = new StepDetails_Fragment();
@@ -307,7 +358,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     private void hideVideoShowImage(String imageURL) {
         mExoPlayer.setVisibility(View.INVISIBLE);
         mRecipeImageView.setVisibility(View.VISIBLE);
-        if (!imageURL.isEmpty())
+        if (!TextUtils.isEmpty(imageURL))
             Picasso.with(getActivity()).load(imageURL).into(mRecipeImageView);
         else
             mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
@@ -317,7 +368,6 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         mExoPlayer.setVisibility(View.VISIBLE);
         mRecipeImageView.setVisibility(View.INVISIBLE);
     }
-
 }
 
 
