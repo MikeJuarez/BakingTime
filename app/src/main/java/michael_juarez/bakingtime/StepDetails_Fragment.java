@@ -312,7 +312,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     public void pressedPreviousButton() {
         if (player != null)
             player.release();
-        mResumePosition = C.INDEX_UNSET;
+        mResumeWindow = C.INDEX_UNSET;
         mStepDetailPosition--;
         mNextButton.setVisibility(View.VISIBLE);
         if (mStepDetailPosition == 0)
@@ -325,7 +325,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     public void pressedNextButton() {
         if (player != null)
             player.release();
-        mResumePosition = C.INDEX_UNSET;
+        mResumeWindow = C.INDEX_UNSET;
 
         mStepDetailPosition++;
         mPreviousButton.setVisibility(View.VISIBLE);

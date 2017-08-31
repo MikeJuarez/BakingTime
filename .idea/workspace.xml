@@ -16,11 +16,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b58f892-c5a3-46ae-8aec-549179c61faf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java" />
     </list>
     <ignored path="BakingTime.iws" />
@@ -99,8 +94,8 @@
       <file leaf-file-name="StepDetails_Fragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
+            <state relative-caret-position="278">
+              <caret line="323" column="38" selection-start-line="323" selection-start-column="38" selection-end-line="323" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -4024,8 +4019,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
+        <state relative-caret-position="278">
+          <caret line="323" column="38" selection-start-line="323" selection-start-column="38" selection-end-line="323" selection-end-column="38" />
           <folding />
         </state>
       </provider>
