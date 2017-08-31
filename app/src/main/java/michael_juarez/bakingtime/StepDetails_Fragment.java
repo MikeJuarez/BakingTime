@@ -170,7 +170,6 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         boolean needNewPlayer = player == null;
 
         if (needNewPlayer) {
-
             // 1. Create a default TrackSelector
             BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
             TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);
@@ -188,9 +187,9 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
             MediaSource videoSource = new ExtractorMediaSource(mp4VideoUri,
                     dataSourceFactory, extractorsFactory, null, null);
             boolean haveResumePosition = mResumeWindow != C.INDEX_UNSET;
-            if (haveResumePosition) {
+            if (haveResumePosition)
                 player.seekTo(mResumeWindow, mResumePosition);
-            }
+
             player.prepare(videoSource);
         }
 
@@ -313,6 +312,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     public void pressedPreviousButton() {
         if (player != null)
             player.release();
+        mResumePosition = C.INDEX_UNSET;
         mStepDetailPosition--;
         mNextButton.setVisibility(View.VISIBLE);
         if (mStepDetailPosition == 0)
@@ -325,6 +325,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     public void pressedNextButton() {
         if (player != null)
             player.release();
+        mResumePosition = C.INDEX_UNSET;
 
         mStepDetailPosition++;
         mPreviousButton.setVisibility(View.VISIBLE);

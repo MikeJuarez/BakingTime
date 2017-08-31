@@ -21,15 +21,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Controller/RecipeController.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Controller/RecipeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Model/Recipe.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Model/Recipe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Activity.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Activity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Fragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Steps_Fragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Steps_Fragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/recipe_fragment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/recipe_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="BakingTime.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,7 +56,7 @@
       <file leaf-file-name="Recipe_Fragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="227">
               <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding>
                 <element signature="e#2135#2185#0" expanded="true" />
@@ -104,21 +96,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StepDetails_Fragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StepDetails_Fragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="271" column="52" selection-start-line="271" selection-start-column="52" selection-end-line="271" selection-end-column="52" />
+            <state relative-caret-position="329">
+              <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Recipe_Activity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Recipe_Activity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Activity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+            <state relative-caret-position="346">
+              <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -2134,12 +2126,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Model/Recipe.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Steps_Fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/recipe_fragment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Controller/RecipeController.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Fragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Activity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java" />
       </list>
     </option>
   </component>
@@ -3552,14 +3544,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java</url>
-          <line>349</line>
-          <properties />
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="95" />
     </breakpoint-manager>
     <watches-manager />
@@ -3850,7 +3834,7 @@
         <state relative-caret-position="178">
           <caret line="192" column="0" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
           <folding>
-            <element signature="e#6206#6207#0" expanded="true" />
+            <element signature="e#6206#6207#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3900,7 +3884,7 @@
         <state relative-caret-position="178">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <element signature="e#2374#2375#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3918,8 +3902,8 @@
         <state relative-caret-position="170">
           <caret line="92" column="46" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
           <folding>
-            <element signature="e#30052#30053#0" expanded="true" />
-            <element signature="e#30090#30091#0" expanded="true" />
+            <element signature="e#30052#30053#0" expanded="false" />
+            <element signature="e#30090#30091#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3954,14 +3938,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="271" column="52" selection-start-line="271" selection-start-column="52" selection-end-line="271" selection-end-column="52" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Steps_Fragment.java">
@@ -4027,9 +4003,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="85" column="19" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="227">
           <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
             <element signature="e#2135#2185#0" expanded="true" />
@@ -4038,10 +4022,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/Recipe_Activity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/michael_juarez/bakingtime/StepDetails_Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+        <state relative-caret-position="329">
+          <caret line="326" column="29" selection-start-line="326" selection-start-column="29" selection-end-line="326" selection-end-column="29" />
           <folding />
         </state>
       </provider>
