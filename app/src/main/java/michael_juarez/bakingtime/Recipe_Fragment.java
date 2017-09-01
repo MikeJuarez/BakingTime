@@ -7,10 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -113,7 +117,7 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
 
         @Override
         public void onBindViewHolder(RecipeViewHolder holder, int position) {
-            holder.bind(mRecipeList.get(position).getId(), mRecipeList.get(position).getName());
+            holder.bind(mRecipeList.get(position).getName(), mRecipeList.get(position).getImage());
         }
 
         @Override
@@ -122,7 +126,8 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
         }
 
         public class RecipeViewHolder extends ViewHolder implements View.OnClickListener {
-            @BindView(R.id.recipe_name_tv) TextView mRecipeNameTextView;
+            @BindView(R.id.list_item_recipe_name_tv) TextView mRecipeNameTextView;
+            @BindView(R.id.list_item_recipe_iv) ImageView mRecipeImageView;
 
             public RecipeViewHolder(LayoutInflater inflater, ViewGroup parent) {
                 super(inflater.inflate(R.layout.list_item_recipe, parent, false));
@@ -130,8 +135,13 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
                 itemView.setOnClickListener(this);
             }
 
-            public void bind(String recipeId, String recipeName){
+            public void bind(String recipeName, String recipeImageURL){
                 mRecipeNameTextView.setText(recipeName);
+                if (!TextUtils.isEmpty(recipeImageURL))
+                    Picasso.with(getActivity())
+                            .load(recipeImageURL)
+                            .error(R.drawable.bakery_goods)
+                            .into(mRecipeImageView);
             }
 
             @Override
@@ -192,4 +202,5 @@ public class Recipe_Fragment extends Fragment implements RecipeController.Finish
         super.onConfigurationChanged(newConfig);
         setUpLayoutManager();
     }
+
 }

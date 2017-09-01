@@ -85,7 +85,6 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
     private int mStepDetailPosition;
     private Step mStep;
     private int mStepDetailCount;
-    private String mRecipeImageURL;
 
     private int mContainer;
     private boolean mIsTablet;
@@ -110,9 +109,6 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         mContainer = ScreenSizeController.getInstance(getActivity(), false, 0).getContainer();
 
         mRecipeController = RecipeController.getInstance(getActivity(), getResources().getString(R.string.recipe_location), this);
-
-        //Get image url for this step
-        mRecipeImageURL = mRecipeController.getRecipeList().get(mStepPosition).getImage();
 
         //Get Bundle Information that may have been passed in
         mStepPosition = getArguments().getInt(Steps_Fragment.KEY_POSITION);
@@ -154,7 +150,7 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
 
         //If there is no video, check for image
         if (TextUtils.isEmpty(mp4VideoUri.toString())) {
-            String imageURL = Uri.parse(mRecipeImageURL).toString();
+            String imageURL = mStep.getThumbnailUrl();
 
             //If there is no thumbnail video, then show a default image
             if (TextUtils.isEmpty(imageURL)) {
@@ -367,7 +363,10 @@ public class StepDetails_Fragment extends Fragment implements RecipeController.F
         mExoPlayer.setVisibility(View.INVISIBLE);
         mRecipeImageView.setVisibility(View.VISIBLE);
         if (!TextUtils.isEmpty(imageURL))
-            Picasso.with(getActivity()).load(imageURL).into(mRecipeImageView);
+            Picasso.with(getActivity())
+                    .load(imageURL)
+                    .error(R.drawable.bakingtimelogo)
+                    .into(mRecipeImageView);
         else
             mRecipeImageView.setImageResource(R.drawable.bakingtimelogo);
     }

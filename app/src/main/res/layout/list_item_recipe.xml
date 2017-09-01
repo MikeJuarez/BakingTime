@@ -15,13 +15,13 @@
         android:paddingTop="4dp"
         android:scaleType="centerCrop"
         android:src="@drawable/bakery_goods"
-        app:layout_constraintBottom_toTopOf="@+id/recipe_name_tv"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_recipe_name_tv"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/recipe_name_tv"
+        android:id="@+id/list_item_recipe_name_tv"
         style="@style/recipe_card_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

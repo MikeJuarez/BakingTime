@@ -42,8 +42,6 @@ public class Recipe_Activity extends AppCompatActivity {
         //Check if this device is a tablet
         if (findViewById(R.id.recipe_container_tablet_left) != null)
             mIsTablet = true;
-        else
-            mIsTablet = false;
 
         homeClick();
     }
